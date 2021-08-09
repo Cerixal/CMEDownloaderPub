@@ -52,14 +52,13 @@ namespace CMEDownloader
 
             Driver.FindElement(By.Id("pardotCookieButton")).Click();
             Driver.FindElement(By.ClassName("load-all")).Click();
-            for (int i = 1; i < 79; i++)
+            
+            var result = Driver.FindElements(By.ClassName("table-cell"));
+            foreach (var node in result)
             {
-                var result = Driver.FindElements(By.ClassName("table-cell"));
-                foreach (var node in result)
-                {
                     Console.WriteLine(node.Text);
-                }
             }
+            
         }
     }
 }
